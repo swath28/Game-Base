@@ -1,0 +1,157 @@
+#heading
+{
+    font-style: oblique;
+    font-display: center;
+    text-align:center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:50px;
+    background-color: lightgreen ;
+    padding: 40px;
+    margin-top: 0%;
+    
+}
+
+NAV a
+{
+   background-color:  black;
+    text-decoration-color: white;
+    color:white
+    
+}
+*{
+    box-sizing:border-box;
+  }
+  
+
+.column
+{
+    float:left;
+    width:25%;
+   padding:5px;
+  
+  }
+  
+  .row1{
+    float: left;
+}
+
+#heading2
+{
+    font-style: oblique;
+    font-display: center;
+    text-align:center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:50px;
+    background-color: lightgreen ;
+    padding: 40px;
+    margin-top: 0%;
+
+}
+#BUBBLESHOOTER
+{
+    text-align: center;
+    color: coral ;
+}
+.Login
+{
+
+   width: 300px;
+box-shadow: 0 0 10px 0px rgba(0,0,0,0.1) ;
+    background-color: white;
+padding:20px;
+margin: 7% auto  ;
+margin-right: 300px;
+border-style: solid rgb(19, 52, 240);
+border-radius: 4px;
+}
+.Login h1
+
+{
+    color: rgb(6, 131, 248);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.username
+{
+    border-radius: 10px;
+    padding: 5px;
+    border : 2px solid rgb(138, 4, 44);
+width: 100%;
+margin-bottom: 10px;;
+}
+.password
+{
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+    border : 2px solid rgb(138, 4, 44);
+}
+.button
+{
+    color: rgb(17, 17, 119);
+    background-color: coral;
+    cursor:pointer;
+    font-size: 15px;
+    border-radius: 20px;
+    width: 100%;
+    }
+.OR
+{
+    margin: -19px auto 0px ;
+    
+    background-color: white;
+    width: 15px;
+    }
+
+
+.names 
+{
+    list-style-type: none;
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 0px;
+    display: none;
+    border: 2px solid black;
+    }
+.names a 
+{
+    text-decoration: none;
+   color: black;
+}
+#add-newgame,#callingnewuser
+{
+   
+    margin-left: 45%;;
+    text-align: center;
+   
+    font-weight: bold;
+    width: 200px;
+    text-align:center;
+    display: none;
+}
+
+
+#addgame,#addadmin
+{
+    margin: 12px auto;
+    color: blue;
+    background-color:  rgba(21, 224, 191, 0.712);
+    
+}
+.column a,.column2 a
+{
+    text-decoration: none;
+     color: red;
+    
+}
+.column img{
+    width: 100% ;
+    float: left;
+}
+.column h3
+{
+    background-color: rgb(96, 4, 124);
+    text-align: center;
+}
+

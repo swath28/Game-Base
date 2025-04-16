@@ -1,0 +1,132 @@
+<!doctype html>
+<head>
+    <meta charset="UTF-8">
+    <meta name ="viewport" content="width=device-width,initial-scale=1.0">
+    <title>GameBase</title>
+<link rel="stylesheet" href="stylesheet.css">
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+</head>
+<body>
+    <heading>
+        <h1 ID="heading">
+           <strong>ONELINE GAMES</strong>
+        </h1>
+        <nav>
+            <A HREF="Home.html">HOME</A>&nbsp;&nbsp;|&nbsp;&nbsp;  
+            
+            <A HREF="BUBBLESHOOTER.html">BUBBLE SHOOTER</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <A HREF="PUZZLE.html">PUZZLE</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+        <A HREF="QUIZ.html">QUIZ</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+        <A HREF="ARCADE.html">ARCADE</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+        <A HREF="RACING.html">RACING</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+        <A HREF="SPORT.html">SPORT</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+        <A HREF="JUMP&RUN.html">JUMP & RUN</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+        <A HREF="CARDS.html">CARDS</A>&nbsp;&nbsp;|&nbsp;&nbsp; 
+      <button onclick="signOut()" style="float: right;width: 80px;height: 30px;margin-bottom: 0px;color: rgb(248, 70, 6);background-color:  lightgreen;cursor: pointer;">Log Out</button>
+         </nav>
+         <input class="search" id="search" type="text" placeholder="Search" style="border-radius: 20px;border-color: black;text-align: center;width: 200px;height: 30px;font-family:sans-serif;margin-left: 42px;" onkeyup="filternames()" >
+<ul id="ul">
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/element-blocks">Elements Blocks</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/8-ball-billiards-classic">8Ball Billiards</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/3d-free-kick">3DFreeKick</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/zoo-boom">zoo-boom</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/bus-parking-3d">Bus<sub>3D</sub>Parking</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/orange-bubbles">OrangeBubbles</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/orange-ranch">OrangeRanch</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/bubble-gems">BubbleGems</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/soccer-bubbles">SoccerBubbles</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/fuzzies">Fuzzies</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/smarty-bubbles-2">SmartyBubbles-2</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/smarty-bubbles">SmartyBubbles</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/bubble-hamsters">BubbleHamsters</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/sudoku-classic">Sudoku Classic</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/jigsaw-puzzle-classic">Jigsaw Puzzle Classic</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/4-in-a-row">4 In A Row</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/word-bird">Word Bird</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/kids-block-puzzle">KidsBlockPuzzle</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/7-words">7 Words</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/brain-trainer">Brain Trainer</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/maze">Maze</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/sweet-hangman">Sweet Hangman</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/quick-quiz">Quick Quiz</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/geo-quiz-europe">Geo Quiz-Europe</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/animal-quiz">Animal Quiz</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/wordguess-2-heavy">Word Guess 2 Heavy</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/wordguess-2-easy">Word Guess 2 Easy</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/wordguess-4images">4X1 Picture Quiz</a></li>
+    <li class="names" style="border: 2px solid black;" ><a href="https://play.famobi.com/alien-quest">Alien Quest</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/knife-rain">Knife Rain</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/cannon-balls-3d">Cannon Balls 3D</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/slice-rush">Slice Rush</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/curve-ball-3d">Curve Ball 3D</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/crazy-caves">Crazy Caves</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/stack-smash">STACK SMASH</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/tnt-bomb">TNT BOMB</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/monkey-bounce">Monkey Bounce</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/moto-x3m-pool-party">Moto X3M POOL PARTY</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/drift-cup-racing">Drift Cup Racing</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/moto-fury">Moto Fury</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/highway-rider-extreme">Highway Rider Extreme</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/race-right">Race Right</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/drag-racing-club">Drag Racing Club</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/high-hills">HIGH HILLS</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/high-hills">Moto X3M</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/baseball-pro"> BASEBALL PRO</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/billiard-blitz-challenge">Billiard Blitz Challenge</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/table-tennis-world-tour">Table Tennis World Tour</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/3d-basketball">3D Basketball</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/3d-darts">3D Darts</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/3d-air-hockey">3D Air Hockey</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/3d-free-kick-world-cup-18">3D Free Kick World Cup 18</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/blaze-kick">Blaze Kick</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/red-head">RED HEAD</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/the-green-mission">The Green Mission</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/nut-rush">Nut Rush</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/running-jack">Running Jack</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/jungle-run">Jungle Run</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/basket-and-ball">Basket And Ball</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/yeti-sensation">Yeti Sensation</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/snowball-world">SnowBall World</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/3d-solitaire">3D Solitare</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/mafia-poker">Mafia Poker</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/duo-cards">Duo Cards</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/solitaire-klondike">Solitare Klondike</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/spider-solitaire">Spider Solitare</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/wild-west-solitaire">Wild West Solitare</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/solitaire-classic-christmas">Solitare classic christmas</a></li>
+    <li class="names" style="border:2px solid black; "><a href="https://play.famobi.com/solitaire-legend">Solitare Legend</a></li>
+</ul>
+    
+         <h2 ID="BUBBLESHOOTER"> BUBBLE SHOOTER</h2>
+    </heading>
+    <div class="row2">
+        <div class="column">
+            <a href="https://play.famobi.com/soccer-bubbles" style="text-decoration: none; color: red ;"><img src="images/SoccerBubblesTeaser.jpg" width="100%"><h3 style="background-color: rgb(96, 4, 124);text-align: center;">SoccerBubbles</h3></a>
+        </div>
+        <div class="column">
+            <a href="https://play.famobi.com/bubble-gems"style="text-decoration: none; color: red ;"><img src="images/BubbleGemsTeaser.jpg" width=100%><h3 style="background-color: rgb(96, 4, 124);text-align: center;">BubbleGems</h3></a>
+        </div>
+        <div class="column">
+            <a href="https://play.famobi.com/orange-ranch"style="text-decoration: none; color: red ;"><img src="images/OrangeRanchTeaser.jpg" width=100%><h3 style="background-color: rgb(96, 4, 124);text-align: center;">OrangeRanch</h3></a>
+        </div>
+        <div class="column">
+            <a href="https://play.famobi.com/orange-bubbles"style="text-decoration: none; color: red ;"><img src="images/OrangeBubblesTeaser.jpg" width=100%><h3 style="background-color: rgb(96, 4, 124);text-align: center;">OrangeBubbles</h3></a>
+        </div>
+        <div class="column">
+            <a href="https://play.famobi.com/bubble-hamsters"style="text-decoration: none; color: red ;"><img src="images/BubbleHamstersTeaser.jpg" width=100%><h3 style="background-color: rgb(96, 4, 124);text-align: center;">BubbleHamsters</h3></a>
+        </div>
+        <div class="column">
+            <a href="https://play.famobi.com/smarty-bubbles"style="text-decoration: none; color: red ;"><img src="images/SmartyBubbles20160620Teaser.jpg" width=100%><h3 style="background-color: rgb(96, 4, 124);text-align: center;">SmartyBubbles</h3></a>
+        </div>
+        <div class="column">
+            <a href="https://play.famobi.com/smarty-bubbles-2"style="text-decoration: none; color: red ;"><img src="images/SmartyBubbles2Teaser.jpg" width=100%><h3 style="background-color: rgb(96, 4, 124);text-align: center;">SmartyBubbles-2</h3></a>
+        </div>
+        <div class="column">
+            <a href="https://play.famobi.com/fuzzies"style="text-decoration: none; color: red ;"><img src="images/FuzziesTeaser.jpg" width=100%><h3 style="background-color: rgb(96, 4, 124);text-align: center;">Fuzzies</h3></a>
+        </div>
+    </div>
+    <script src="bubbleshooter.js"></script>
+    </body>
